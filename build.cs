@@ -9,7 +9,7 @@ var configuration = Argument("configuration", "Release");
 Task("Build")
     .Does(context => 
 {
-    DotNetBuild("./src/Covenant.sln", new DotNetBuildSettings {
+    DotNetBuild("./src/Covenant.slnx", new DotNetBuildSettings {
         Configuration = configuration,
         NoIncremental = context.HasArgument("rebuild"),
         MSBuildSettings = new DotNetMSBuildSettings()
@@ -21,7 +21,7 @@ Task("Test")
     .IsDependentOn("Build")
     .Does(context => 
 {
-    DotNetTest("./src/Covenant.sln", new DotNetTestSettings {
+    DotNetTest("./src/Covenant.slnx", new DotNetTestSettings {
         Configuration = configuration,
         NoRestore = true,
         NoBuild = true,
@@ -34,7 +34,7 @@ Task("Pack")
 {
     CleanDirectory("./.artifacts");
 
-    DotNetPack("./src/Covenant.sln", new DotNetPackSettings {
+    DotNetPack("./src/Covenant.slnx", new DotNetPackSettings {
         Configuration = configuration,
         NoRestore = true,
         NoBuild = true,
