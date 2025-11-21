@@ -6,7 +6,7 @@ namespace Covenant.Tests;
 [ShouldlyMethods]
 public static class CycloneDxShouldlyExtensions
 {
-    private static readonly XNamespace _ns = "http://cyclonedx.org/schema/bom/1.5";
+    private static readonly XNamespace _ns = "http://cyclonedx.org/schema/bom/1.6";
 
     public static XElement ShouldHaveSingleComponent(this XDocument document, string? customMessage = null)
     {
