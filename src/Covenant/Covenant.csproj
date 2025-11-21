@@ -44,6 +44,10 @@
     </PackageReference>
     <PackageReference Include="Spectre.IO" />
     <PackageReference Include="System.CommandLine" />
+
+    <!-- Override vulnerable versions -->
+    <PackageReference Include="Microsoft.Build" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" />
   </ItemGroup>
 
   <ItemGroup>
