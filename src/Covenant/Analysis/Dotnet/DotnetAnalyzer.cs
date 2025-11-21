@@ -233,7 +233,7 @@ internal class DotnetAnalyzer : Analyzer
         var assets = _assetFileReader.ReadAssetFile(path);
         if (assets == null)
         {
-            var designTimeHint = analyzerResult is null ? $" Consider using [yellow]{DesignTimeBuildFlag}[/] flag if you are using the [yellow]UseArtifactsOutput[/] msbuild property." : string.Empty;
+            var designTimeHint = analyzerResult is null ? $". Consider using [yellow]{DesignTimeBuildFlag}[/] flag if you are using the [yellow]UseArtifactsOutput[/] msbuild property." : string.Empty;
             context.AddError($"Could not find [yellow]project.assets.json[/] at [yellow]{path}[/]{designTimeHint}");
             return null;
         }
