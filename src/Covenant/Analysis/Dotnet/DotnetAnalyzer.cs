@@ -83,6 +83,7 @@ internal class DotnetAnalyzer : Analyzer
             var assetFiles = new List<AssetFile>();
             foreach (var csproj in solution.SolutionProjects)
             {
+                // Ensure the relative paths found in solutions are resolved relative to the .sln file, rather than the working directory
 				var csprojPath = FilePath.FromString(csproj.FilePath).MakeAbsolute(path.GetDirectory());
                 if (CanHandle(context, csprojPath))            
                 {
