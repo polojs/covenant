@@ -84,14 +84,16 @@ internal class DotnetAnalyzer : Analyzer
             foreach (var csproj in solution.SolutionProjects)
             {
                 // Ensure the relative paths found in solutions are resolved relative to the .sln file, rather than the working directory
-                var csprojPath = FilePath.FromString(csproj.FilePath).MakeAbsolute(path.GetDirectory());
-
-                var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csprojPath);
-                var assetsFile = ReadAssetFile(context, csprojPath, analyzerResult);
-                if (assetsFile != null)
+				var csprojPath = FilePath.FromString(csproj.FilePath).MakeAbsolute(path.GetDirectory());
+                if (CanHandle(context, csprojPath))            
                 {
-                    assetFiles.Add(assetsFile);
-                    AnalyzeProject(context, assetsFile, version, copyright, path.GetFilename().FullPath);
+                	var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csprojPath);
+                	var assetsFile = ReadAssetFile(context, csprojPath, analyzerResult);
+                    if (assetsFile != null)
+                    {
+                        assetFiles.Add(assetsFile);
+                        AnalyzeProject(context, assetsFile, version, copyright, path.GetFilename().FullPath);
+                    }
                 }
             }
 
