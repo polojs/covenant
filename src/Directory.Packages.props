@@ -1,0 +1,31 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="Buildalyzer" Version="7.1.0" />
+    <PackageVersion Include="CycloneDX.Core" Version="10.0.1" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.VisualStudio.SolutionPersistence" Version="1.0.52" />
+    <PackageVersion Include="MinVer" Version="6.0.0" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageVersion Include="NuGet.Packaging" Version="7.0.0" />
+    <PackageVersion Include="Rosetta" Version="0.7.0" />
+    <PackageVersion Include="Roslynator.Analyzers" Version="4.14.1" />
+    <PackageVersion Include="Scriban" Version="6.5.1" />
+    <PackageVersion Include="Semver" Version="3.0.0" />
+    <PackageVersion Include="Shouldly" Version="4.3.0" />
+    <PackageVersion Include="Spdx" Version="0.11.0" />
+    <PackageVersion Include="Spectre.Console" Version="0.54.0" />
+    <PackageVersion Include="Spectre.Console.Analyzer" Version="1.0.0" />
+    <PackageVersion Include="Spectre.IO" Version="0.21.0" />
+    <PackageVersion Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageVersion Include="coverlet.collector" Version="6.0.4" />
+    <PackageVersion Include="xunit" Version="2.9.3" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5" />
+    <PackageVersion Include="Microsoft.Build" Version="17.10.46" />
+    <PackageVersion Include="Microsoft.Build.Tasks.Core" Version="17.10.46" />
+  </ItemGroup>
+</Project>

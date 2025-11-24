@@ -1,0 +1,19 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Build/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+  <Folder Name="/Serializers/">
+    <Project Path="Covenant.CycloneDx/Covenant.CycloneDx.csproj" />
+    <Project Path="Covenant.Spdx/Covenant.Spdx.csproj" />
+  </Folder>
+  <Project Path="Covenant.Core/Covenant.Core.csproj" />
+  <Project Path="Covenant.Tests/Covenant.Tests.csproj" />
+  <Project Path="Covenant/Covenant.csproj" />
+</Solution>

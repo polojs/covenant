@@ -83,10 +83,11 @@ internal class DotnetAnalyzer : Analyzer
             var assetFiles = new List<AssetFile>();
             foreach (var csproj in solution.SolutionProjects)
             {
-                if (CanHandle(context, csproj.FilePath))
+				var csprojPath = FilePath.FromString(csproj.FilePath).MakeAbsolute(path.GetDirectory());
+                if (CanHandle(context, csprojPath))            
                 {
-                    var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csproj.FilePath);
-                    var assetsFile = ReadAssetFile(context, csproj.FilePath, analyzerResult);
+                	var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csprojPath);
+                	var assetsFile = ReadAssetFile(context, csprojPath, analyzerResult);
                     if (assetsFile != null)
                     {
                         assetFiles.Add(assetsFile);
@@ -233,7 +234,7 @@ internal class DotnetAnalyzer : Analyzer
         var assets = _assetFileReader.ReadAssetFile(path);
         if (assets == null)
         {
-            var designTimeHint = analyzerResult is null ? $" Consider using [yellow]{DesignTimeBuildFlag}[/] flag if you are using the [yellow]UseArtifactsOutput[/] msbuild property." : string.Empty;
+            var designTimeHint = analyzerResult is null ? $". Consider using [yellow]{DesignTimeBuildFlag}[/] flag if you are using the [yellow]UseArtifactsOutput[/] msbuild property." : string.Empty;
             context.AddError($"Could not find [yellow]project.assets.json[/] at [yellow]{path}[/]{designTimeHint}");
             return null;
         }

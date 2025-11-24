@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFrameworks>net8.0</TargetFrameworks>
+    <TargetFrameworks>net10.0;net8.0</TargetFrameworks>
     <IsPackable>true</IsPackable>
     <PackAsTool>true</PackAsTool>
     <PackageId>Covenant</PackageId>
@@ -25,29 +25,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" Link="Properties/stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Reporting\Templates\Template.html" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Buildalyzer" Version="6.0.4" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.SolutionPersistence" Version="1.0.52" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NuGet.Packaging" Version="6.9.1" />
-    <PackageReference Include="Rosetta" Version="0.5.0" />
-    <PackageReference Include="Scriban" Version="5.9.1" />
-    <PackageReference Include="Semver" Version="2.3.0" />
-    <PackageReference Include="Spectre.Console" Version="0.48.0" />
-    <PackageReference Include="Spectre.Console.Analyzer" Version="0.48.0">
+    <PackageReference Include="Buildalyzer" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.VisualStudio.SolutionPersistence"/>
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="NuGet.Packaging" />
+    <PackageReference Include="Rosetta" />
+    <PackageReference Include="Scriban" />
+    <PackageReference Include="Semver" />
+    <PackageReference Include="Spectre.Console" />
+    <PackageReference Include="Spectre.Console.Analyzer">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Spectre.IO" Version="0.14.0" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
+    <PackageReference Include="Spectre.IO" />
+    <PackageReference Include="System.CommandLine" />
+
+    <!-- Override vulnerable versions -->
+    <PackageReference Include="Microsoft.Build" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" />
   </ItemGroup>
 
   <ItemGroup>
