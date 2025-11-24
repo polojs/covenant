@@ -83,12 +83,15 @@ internal class DotnetAnalyzer : Analyzer
             var assetFiles = new List<AssetFile>();
             foreach (var csproj in solution.SolutionProjects)
             {
-                var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csproj.FilePath);
-                var assetsFile = ReadAssetFile(context, csproj.FilePath, analyzerResult);
-                if (assetsFile != null)
+                if (CanHandle(context, csproj.FilePath))
                 {
-                    assetFiles.Add(assetsFile);
-                    AnalyzeProject(context, assetsFile, version, copyright, path.GetFilename().FullPath);
+                    var (version, copyright, analyzerResult) = PerformDesignTimeBuild(context, csproj.FilePath);
+                    var assetsFile = ReadAssetFile(context, csproj.FilePath, analyzerResult);
+                    if (assetsFile != null)
+                    {
+                        assetFiles.Add(assetsFile);
+                        AnalyzeProject(context, assetsFile, version, copyright, path.GetFilename().FullPath);
+                    }
                 }
             }
 
